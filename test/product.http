@@ -1,5 +1,14 @@
+
+GET http://127.0.0.1:8000/products
+Content-Type: "application/json"
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzcwNzY5MzAsInN1YiI6IjQ2NTEyODAxLTFlMzYtNDI4YS05YWI5LTM5ZDE1MjNkMzgxNSJ9.LVriDMI9_2tLUlPww6jT1J_IWlqadHzfTub2qLV7tjQ
+
+
+###
+
 POST http://127.0.0.1:8000/products
 Content-Type: "application/json"
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzcwNzY5MzAsInN1YiI6IjQ2NTEyODAxLTFlMzYtNDI4YS05YWI5LTM5ZDE1MjNkMzgxNSJ9.LVriDMI9_2tLUlPww6jT1J_IWlqadHzfTub2qLV7tjQ
 
 {
     "name": "My Product",
@@ -7,5 +16,21 @@ Content-Type: "application/json"
 }
 
 ###
-GET  http://127.0.0.1:8000/products/58a4774c-2f51-45d7-9a93-7f71f0bcdc2
+GET  http://127.0.0.1:8000/products/58a4774c-2f51-45d7-9a93-7f71f0bcdc2f
 Content-Type: "application/json"
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzcwNzY5MzAsInN1YiI6IjQ2NTEyODAxLTFlMzYtNDI4YS05YWI5LTM5ZDE1MjNkMzgxNSJ9.LVriDMI9_2tLUlPww6jT1J_IWlqadHzfTub2qLV7tjQ
+###
+
+PUT http://127.0.0.1:8000/products/58a4774c-2f51-45d7-9a93-7f71f0bcdc2f
+Content-Type: "application/json"
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzcwNzY5MzAsInN1YiI6IjQ2NTEyODAxLTFlMzYtNDI4YS05YWI5LTM5ZDE1MjNkMzgxNSJ9.LVriDMI9_2tLUlPww6jT1J_IWlqadHzfTub2qLV7tjQ
+
+{
+    "name": "My Product Update",
+    "price": 100
+}
+
+###
+DELETE http://127.0.0.1:8000/products/58a4774c-2f51-45d7-9a93-7f71f0bcdc2f
+Content-Type: "application/json"
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NzcwNzY5MzAsInN1YiI6IjQ2NTEyODAxLTFlMzYtNDI4YS05YWI5LTM5ZDE1MjNkMzgxNSJ9.LVriDMI9_2tLUlPww6jT1J_IWlqadHzfTub2qLV7tjQ

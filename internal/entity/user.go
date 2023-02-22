@@ -1,8 +1,15 @@
 package entity
 
 import (
+	"errors"
+
 	"github.com/QuatroQuatros/go-API/pkg/entity"
 	"golang.org/x/crypto/bcrypt"
+)
+
+var (
+	ErrEmailIsRequired    = errors.New("email is required")
+	ErrPasswordIsRequired = errors.New("password is required")
 )
 
 type User struct {
@@ -18,12 +25,37 @@ func NewUser(name, email, password string) (*User, error) {
 		return nil, err
 	}
 
-	return &User{
+	user := &User{
 		ID:       entity.NewID(),
 		Name:     name,
 		Email:    email,
 		Password: string(hash),
-	}, nil
+	}
+
+	err = user.Validate(password)
+	if err != nil {
+		return nil, err
+	}
+	return user, nil
+}
+
+func (u *User) Validate(password string) error {
+	if u.ID.String() == "" {
+		return ErrIDIsRequired
+	}
+	if _, err := entity.ParseID(u.ID.String()); err != nil {
+		return ErrInvalidId
+	}
+	if u.Name == "" {
+		return ErrNameIsRequired
+	}
+	if u.Email == "" {
+		return ErrEmailIsRequired
+	}
+	if password == "" {
+		return ErrPasswordIsRequired
+	}
+	return nil
 }
 
 func (u *User) ValidatePassword(password string) bool {

@@ -43,6 +43,11 @@ func (p *Product) Update(product *entity.Product) error {
 		return err
 	}
 
+	err = product.Validate()
+	if err != nil {
+		return err
+	}
+
 	return p.DB.Save(product).Error
 
 }

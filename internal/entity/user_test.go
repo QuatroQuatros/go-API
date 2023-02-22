@@ -16,6 +16,24 @@ func TestNewUser(t *testing.T) {
 	assert.Equal(t, "j@j.com", user.Email)
 }
 
+func TestUserWhenNameIsRequired(t *testing.T) {
+	u, err := NewUser("", "j@j.com", "123")
+	assert.Nil(t, u)
+	assert.Equal(t, ErrNameIsRequired, err)
+}
+
+func TestUserWhenEmailIsRequired(t *testing.T) {
+	u, err := NewUser("teste", "", "123")
+	assert.Nil(t, u)
+	assert.Equal(t, ErrEmailIsRequired, err)
+}
+
+func TestUserWhenPasswordIsRequired(t *testing.T) {
+	u, err := NewUser("teste", "j@j.com", "")
+	assert.Nil(t, u)
+	assert.Equal(t, ErrPasswordIsRequired, err)
+}
+
 func TestUser_ValidatePassword(t *testing.T) {
 	user, err := NewUser("John Doe", "j@j.com", "123456")
 	assert.Nil(t, err)
